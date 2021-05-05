@@ -5,35 +5,38 @@
 
 #define ARRAY_SIZE 100
 
+unsigned long long binominalCoeficcient(int n, int k);
+
 int main() {
-    int numbers[ARRAY_SIZE] = {0};
-    int numbersCnt = 0;
-    int havePair = 0;
-    printf("Ile liczb chcesz wprowadzc?\n");
-    scanf("%d", &numbersCnt);
-    if (numbersCnt > ARRAY_SIZE && numbersCnt < 2) return 1;
+    int n = 0, k = 0;
+    unsigned long long result = 1;
+    printf("Wprowadz wartosc n:\n");
+    scanf("%d", &n);
+    printf("Wprowadz wartosc k:\n");
+    scanf("%d", &k);
 
-    printf("Wprowadz %d liczb\n", numbersCnt);
+    result = binominalCoeficcient(n, k);
+    printf("Wynik dla n=%d oraz k=%d: %llu\n", n, k, result);
 
-    for (int i=0; i<numbersCnt; i++) {
-        scanf("%d", &numbers[i]);
-    }
-
-    for (int i=0; i<numbersCnt; i++) {
-        for (int j=i+1; j<numbersCnt; j++) {
-            if (numbers[i] == numbers[j]) {
-                havePair = 1;
-                break;
-            }
+    printf("Trojkat Pascala:\n");
+    for (int i=0; i<=30; i ++) {
+        for (int j=0; j<=i; j++) {
+            result = binominalCoeficcient(i, j);
+            if (result > 9999) printf("  ...");
+            else printf("%5llu", result);
         }
-        if (havePair) break;
+        printf("\n");
     }
-
-    if (havePair) 
-        printf("Jest para jednakowych liczb.\n");
-    else 
-        printf("Nie ma paray jednakowych liczb.\n");
-
 
     return 0;
+}
+
+unsigned long long binominalCoeficcient(int n, int k) {
+    unsigned long long result = 1;
+    long double coeficcient = 0.0;
+    for (int i=1; i<=(n-k); i++) {
+        coeficcient = (long double)i + (long double)k;
+        result *= coeficcient / i;
+    }
+    return result;
 }
