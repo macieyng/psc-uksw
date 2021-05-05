@@ -15,28 +15,33 @@ int main() {
         printf("%d, ", numbers[i]);
     }
     printf("\n");
-
+    
     int idx = 1;
-    int temp = 0;
-    int score = 0;
+    int smaller = numbers[0];
+    int temp = 0, change = 0, numbersInCorrectOrder = 0;
     
     while (1) {
-        if (numbers[idx-1] > numbers[idx]) {
+        if (numbers[idx] < numbers[idx-1]) {
             temp = numbers[idx-1];
             numbers[idx-1] = numbers[idx];
             numbers[idx] = temp;
-        } else {
-            score ++;
+            change = 1;
         }
-        idx = (idx + 1) % ARRAY_SIZE;
-        if (score == ARRAY_SIZE) break;
-        if (idx == 0) score = 0;
+        idx ++;
+        if (idx == (ARRAY_SIZE - numbersInCorrectOrder)) {
+            if (change == 0) break; 
+            numbersInCorrectOrder ++;
+            idx = 1;
+            change = 0;
+        }
+        if ((ARRAY_SIZE - numbersInCorrectOrder) == 1) break;
     }
 
     printf("Wprowadzone liczby w kolejnosci od najmniejszej do najwiekszej:\n");
     for (int i=0; i<ARRAY_SIZE; i++) {
         printf("%d, ", numbers[i]);
     }
+    printf("\n");
 
     return 0;
 }
