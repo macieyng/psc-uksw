@@ -13,26 +13,26 @@
 // do 3 miejsca po przecinku np. może ustawić, że szansa wylosowania choroby 
 // będzie stanowić 0,998 szans na wylosowanie a pozostałe warianty 0,001 itp.
 
-#define WEIGHT_A 0.333
-#define WEIGHT_B 0.333
-#define WEIGHT_C 0.334
+#define WEIGHT_1 0.333
+#define WEIGHT_2 0.333
+#define WEIGHT_3 0.334
 
 int options[1000];
 
 int main() {
     int counter = 0, randomChoice = 0, randomOption = 0, opt1 = 0, opt2 = 0, opt3 = 0;
-    for (int i=counter; i<WEIGHT_A*1000+counter; i++) {
+    for (int i=counter; i<WEIGHT_1*1000+counter; i++) {
         options[i] = 1;
     }
-    counter = WEIGHT_A * 1000 + counter;
-    for (int i=counter; i<WEIGHT_B*1000+counter; i++) {
+    counter = WEIGHT_1 * 1000 + counter;
+    for (int i=counter; i<WEIGHT_2*1000+counter; i++) {
         options[i] = 2;
     }
-    counter = WEIGHT_B * 1000 + counter;
-    for (int i=counter; i<WEIGHT_C*1000+counter; i++) {
+    counter = WEIGHT_2 * 1000 + counter;
+    for (int i=counter; i<WEIGHT_3*1000+counter; i++) {
         options[i] = 3;
     }
-    counter = WEIGHT_C * 1000 + counter;
+    counter = WEIGHT_3 * 1000 + counter;
     if (counter != 1000) return 1;
 
     srand(time(NULL));
