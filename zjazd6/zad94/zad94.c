@@ -3,7 +3,7 @@
 
 int main() {
     int n = 0, number = 0;
-    int array[100][100];
+    int array[100][100] = {0};
     int badNumber = 0;
     printf("Podaj liczbe kolumn i wierszy (macierz kwadratowa): \n");
     scanf("%d", &n);
