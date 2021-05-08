@@ -8,6 +8,8 @@ int main() {
     scanf("%d", &m);
     printf("Podaj liczbe kolumn: \n");
     scanf("%d", &n);
+
+    int array[100][100] = {0};
     srand(time(NULL));
     int randomNumber = 0, sign = 0, biggestNumber = 0;
     for (int i=0; i<m; i++) {
@@ -15,15 +17,26 @@ int main() {
             randomNumber = rand() % 100;
             sign = rand() % 2;
             if (sign) randomNumber *= -1;
-            printf("%4d", randomNumber);
+            array[i][j] = randomNumber;
+        }
+    }
 
-            if (j==0 && i==0) biggestNumber = randomNumber;
-            else if (randomNumber > biggestNumber) biggestNumber = randomNumber;
+    biggestNumber = array[0][0];
+    for (int i=0; i<m; i++) {
+        for (int j=0; j<n; j++) {
+            if (array[i][j] > biggestNumber) 
+                biggestNumber = array[i][j];
+        }
+    }
+
+    for (int i=0; i<m; i++) {
+        for (int j=0; j<n; j++) {
+            printf("%4d", array[i][j]);
         }
         printf("\n");
     }
 
-    printf("Najwieksza liczba w tablicy to %d", biggestNumber);
+     printf("Najwieksza liczba w tablicy to %d", biggestNumber);
 
     return 0;
 }
