@@ -1,0 +1,20 @@
+2. Napisz program z podziałem na funkcje, który umożliwi wprowadzenie informacji o studentach.
+
+Informacja o studentach przechowywać będzie informacje:
+1) numer indeksu
+2) inicjały.
+3) Liczba zdobytych punktów
+4) Liczba nieobecności.
+
+Następnie program poprosi o podanie informacji: Ile było maksymalnie punktów do zdobycia w kursie?
+
+Następnie wystawi automatycznie oceny. Punktacja w przeliczeniu na oceny jest zaprezentowana poniżej:
+- powyżej   90% - 5
+- powyżej   90% do 90% - 4,5
+- powyżej   70% do 80% - 4
+- powyżej   60% do 70% - 3,5
+- powyżej   50% do 60% - 3
+- od 0% do 50% - 2
+
+Aplikacja po wprowadzeniu informacji o studentach wypisze wszystkie dane wszystkich studentów w kolejności zdobytych punktów. Jeśli będą mieć takie same wyniki punktowe to po liczbie nieobecności. Jeśli będzie ta sama liczba nieobecności to po numerze indeksu.
+Można założyć, że aplikacja przyjmie nie więcej niż 100 pozycji.
